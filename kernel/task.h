@@ -23,19 +23,22 @@ typedef struct KernelTaskContex_t{
 	uint32_t r0_r12[13]; 
 	uint32_t pc; 
 
-	uint8_t * staclbase;
 }KernelTaskContext_t;
 
 typedef struct KernelTcb_t{
 	uint32_t sp;
 	uint8_t* stack_base;
 
-}KernalTcb_t;
+}KernelTcb_t;
 
 
 typedef void (*KernelTaskFunc_t)(void);
 
-void Kernal_task_init(void);
-uint32_t Kernel_task_create(kernelTaskFunc_t startFunc);
+void Kernel_task_init(void);
+uint32_t Kernel_task_create(KernelTaskFunc_t startFunc);
+void Kernel_task_start(void);
+void Kernel_task_scheduler(void);
+void Kernel_task_context_switching(void);
+
 #endif /* task.h */
 
