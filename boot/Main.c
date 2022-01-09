@@ -3,6 +3,7 @@
 
 #include "HalUart.h"
 #include "HalInterrupt.h"
+#include "HalTimer.h"
 #include "stdio.h"
 #include "kernel.h" 
 #include "stdlib.h"
@@ -18,15 +19,7 @@ void main(void)
 
     uint32_t i = 100;
     
-	/*
-	while(i--)
-    {
-        Hal_uart_put_char('N');
-    }
-	*/
     Hal_uart_put_char('\n');
-    putstr("Hello World!\n");
-	delay(2000);
     putstr("Hello World!\n");
 	Kernel_init();
     while(true);
@@ -54,26 +47,20 @@ static void Printf_test(void)
 }
 
 void User_task0(){
-	debug_printf("USer task #0\n");
 	while(true){
-		delay(1000);
-		Kernel_yield();
+		debug_printf("USer task #0\n");
 	}
 }
 
 void User_task1(){
-	debug_printf("USer task #1\n");
 	while(true){
-		delay(1000);
-		Kernel_yield();
+		debug_printf("USer task #1\n");
 	}
 }
 
 void User_task2(){
-	debug_printf("USer task #2\n");
 	while(true){
-		delay(1000);
-		Kernel_yield();
+		debug_printf("USer task #2\n");
 	}
 }
 

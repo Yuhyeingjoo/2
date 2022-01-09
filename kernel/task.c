@@ -21,11 +21,9 @@ static KernelTcb_t* sNext_tcb;
 
 void Kernel_task_init(){
 	sAllocated_tcb_index = 0;
-
 	for(uint32_t i=0; i<MAX_TASK_NUM; i++){
 		sTask_list[i].stack_base = (uint8_t*)(TASK_STACK_START + i*USR_TASK_STACK_SIZE);
 		sTask_list[i].sp =(uint32_t)sTask_list[i].stack_base + USR_TASK_STACK_SIZE;
-
 		sTask_list[i].sp-=sizeof(KernelTaskContext_t);
 		KernelTaskContext_t* ctx = (KernelTaskContext_t*)sTask_list[i].sp;
 		ctx->pc= 0;
