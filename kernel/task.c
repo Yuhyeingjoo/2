@@ -34,7 +34,7 @@ void Kernel_task_init(){
 
 uint32_t Kernel_task_create(KernelTaskFunc_t startFunc){
 	KernelTcb_t* new_tcb = &sTask_list[sAllocated_tcb_index++];
-	if (sAllocated_tcb_index<MAX_TASK_NUM)
+	if (sAllocated_tcb_index>MAX_TASK_NUM)
 			return NOT_ENOUGH_TASK_NUM;
 	KernelTaskContext_t* ctx = (KernelTaskContext_t*)new_tcb->sp;
 

@@ -48,19 +48,25 @@ static void Printf_test(void)
 
 void User_task0(){
 	while(true){
+		delay(1000);
 		debug_printf("USer task #0\n");
+		Kernel_yield();
 	}
 }
 
 void User_task1(){
 	while(true){
+		delay(1000);
 		debug_printf("USer task #1\n");
+		Kernel_yield();
 	}
 }
 
 void User_task2(){
 	while(true){
+		delay(1000);
 		debug_printf("USer task #2\n");
+		Kernel_yield();
 	}
 }
 
